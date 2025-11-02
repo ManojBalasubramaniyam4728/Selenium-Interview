@@ -1,0 +1,547 @@
+1. What is TestNG?
+=> TestNG stands for "Test Next Generation."
+=> It is a testing framework built for Java unit testing, primarily used by developers.
+=> However, we can also use it for functional testing, such as Selenium testing, to make our test framework more accessible and efficient.
+
+2. What are the advantages of TestNG?
+=> 
+* TestNG allows us to run our test execution in parallel, which saves time.
+
+* TestNG supports dependency between methods (e.g., if login fails, dependent test cases like dashboard access will be skipped).
+
+* TestNG supports grouping of test cases using annotations like @Test(groups = "Smoke"), which helps in organizing and running specific sets of tests.
+
+* TestNG supports prioritizing test cases using @Test(priority = 1), allowing control over the order of execution.
+
+* TestNG supports parameterization through the testng.xml file, enabling external configuration of test data.
+
+* TestNG supports Data Providers, which allow running the same test multiple times with different sets of data using the @DataProvider annotation.
+
+* TestNG supports assertions, including both hard and soft assertions for better test validation.
+
+
+3. How to make use of TestNG in a project
+=> TestNG is available as a JAR file and can be added manually to the project.
+=> If you are using a Maven project, you can use the TestNG dependency in the pom.xml file to include it in your project.
+
+4. what is TestNG Annotations? and what are the Annotations avialabel?
+=> In TestNG, annotations are used to define the execution flow of test methods. They are categorized into:
+
+Pre-requisite Annotations (executed before tests)
+
+@BeforeSuite – Runs once before all tests in the suite.
+@BeforeTest – Runs before any test method belonging to the classes inside the <test> tag in testng.xml.
+@BeforeClass – Runs before the first method in the current class.
+@BeforeMethod – Runs before each test method.
+
+Post-requisite Annotations (executed after tests)
+
+@AfterMethod – Runs after each test method.
+@AfterClass – Runs after all the test methods in the current class.
+@AfterTest – Runs after all test methods belonging to the classes inside the <test> tag.
+@AfterSuite – Runs once after all tests in the suite.
+
+Test Execution & Data-related Annotations
+
+@Test – Marks a method as a test case.
+@DataProvider – Supplies multiple sets of data to a test method.
+@Parameters – Passes parameters from the testng.xml file to test methods.
+
+5. What are the formats of the TestNG XML file?
+=>
+XML Schema
+DOCTYPE of suite
+<suite>
+<listeners> (if any)
+<test>
+<class>
+<method>
+
+6. How do you create and execute a TestNG XML file?
+
+a. Creating a TestNG XML File:
+
+i. Inside any package, right-click → New → File
+ii. Name the file: testng.xml
+iii. Write the appropriate XML format (starting with <suite> tag)
+iv. Ensure the TestNG JAR is added to your project (or use Maven dependency if using Maven)
+
+b. Executing the TestNG XML File:
+
+i. Using Eclipse:
+ * Install the TestNG plugin from Eclipse Marketplace
+ * Right-click on testng.xml → Run As → TestNG Suite
+
+ii. Using Terminal (for Maven projects):
+ * Add the Surefire plugin in your pom.xml file
+ * Configure the path of the XML file inside the plugin
+ * Open the project folder in CMD or Terminal
+ * Run the following command: mvn test
+ * Maven will execute the tests defined in testng.xml
+ 
+ 7. What is the importance of the testng.xml file?
+=> In a Selenium TestNG project, the testng.xml file is the heart of the project.
+=> It is also known as the runner file, because test execution starts from this file.
+=> It controls which classes, methods, and tests should run, and how they should be grouped or prioritized.
+
+
+ 8. How to use parameters in TestNG XML file?
+=>
+Step 1: Define the parameter in testng.xml file:
+<parameter name="browser" value="chrome"/>
+
+Step 2: Use @Parameters annotation in your test class:
+@Parameters("browser")
+@BeforeTest
+public void launchBrowser(String browser) {
+    if (browser.equalsIgnoreCase("chrome")) {
+        WebDriver driver = new ChromeDriver();
+        // continue with driver setup
+    }
+    // Add conditions for other browsers if needed
+}
+
+9. What are TestNG Assertions? List common TestNG assertions?
+=> 
+TestNG assertions are used to validate the results of test execution.
+They help check whether a test has passed or failed by comparing expected and actual results.
+
+Assert.assertTrue(condition, "Failure message");         // Passes if condition is true
+Assert.assertFalse(condition, "Failure message");        // Passes if condition is false
+Assert.assertEquals(actual, expected, "Failure message"); // Passes if both are equal
+Assert.assertNotNull(object, "Failure message");         // Passes if object is not null
+Assert.assertNull(object, "Failure message");            // Passes if object is null
+Assert.assertNotEquals(actual, expected, "Failure message"); // Passes if values are not equal
+
+
+10. what are Hard Assertion? List common TestNG Hard assertions
+=> A hard assertion stops the test execution immediately when an assertion fails.
+
+Assert.assertTrue(condition, "Failure message");
+Assert.assertFalse(condition, "Failure message");
+Assert.assertEquals(actual, expected, "Failure message");
+Assert.assertNotEquals(actual, expected, "Failure message");
+Assert.assertNull(object, "Failure message");
+Assert.assertNotNull(object, "Failure message");
+
+
+11. Soft Assertion:
+=> A soft assertion allows the test to continue even if an assertion fails, and reports all assertion failures at the end.
+
+SoftAssert softAssert = new SoftAssert();
+softAssert.assertTrue(condition, "Failure message");
+softAssert.assertFalse(condition, "Failure message");
+softAssert.assertEquals(actual, expected, "Failure message");
+softAssert.assertNotEquals(actual, expected, "Failure message");
+softAssert.assertNull(object, "Failure message");
+softAssert.assertNotNull(object, "Failure message");
+
+softAssert.assertAll();
+
+12. What is an Expected Exception Test in TestNG? (with example)
+=> An expected exception test is a feature provided by TestNG 
+that allows you to verify if a method throws a specific exception during execution.
+=> Helpful for negative testing where you intentionally cause failures 
+(e.g., invalid login, null inputs, divide by zero) to ensure the system handles them correctly.
+
+example:-
+@Test(expectedExceptions = ArithmeticException.class)
+public void testDivisionByZero() {
+    int result = 10 / 0; // This will throw ArithmeticException
+}
+
+13. What is Priority in TestNG? (With Example)
+=> Priority is a feature provided by TestNG that allows you to control the order of test case execution.
+Tests with lower priority numbers are executed first.
+
+example:-
+@Test(priority = 1)
+public void testLogin() {
+    System.out.println("Login test");
+}
+
+@Test(priority = 2)
+public void testDashboard() {
+    System.out.println("Dashboard test");
+}
+
+
+14. What is DataProvider in TestNG? How to use it? (With Example)
+=> @DataProvider is a TestNG feature used to run the same 
+test method multiple times with different sets of data.
+
+example:-
+public class LoginTest {
+
+    @Test(dataProvider = "excelData")
+    public void testLogin(String username, String password) {
+        System.out.println("Username: " + username);
+        System.out.println("Password: " + password);
+        // Add login logic here
+    }
+
+    @DataProvider(name = "excelData")
+    public Object[][] getExcelData() throws IOException {
+        String filePath = "data/TestData.xlsx";  // Adjust the path if needed
+        FileInputStream file = new FileInputStream(filePath);
+
+        Workbook workbook = new XSSFWorkbook(file);
+        Sheet sheet = workbook.getSheetAt(0);
+
+        int rowCount = sheet.getPhysicalNumberOfRows();
+        int colCount = sheet.getRow(0).getLastCellNum();
+
+        Object[][] data = new Object[rowCount - 1][colCount];
+
+        for (int i = 1; i < rowCount; i++) {  // Start from 1 to skip header
+            Row row = sheet.getRow(i);
+            for (int j = 0; j < colCount; j++) {
+                Cell cell = row.getCell(j);
+                data[i - 1][j] = cell.toString();
+            }
+        }
+
+        workbook.close();
+        file.close();
+        return data;
+    }
+}
+
+
+16. what is grouping? and How to create groups in TestNG ?
+=> Grouping in TestNG allows you to group multiple test methods together under a common name, 
+so that you can run them selectively based on that group name.
+
+example:-
+import org.testng.annotations.Test;
+
+public class GroupExample {
+
+    @Test(groups = {"smoke"})
+    public void testLogin() {
+        System.out.println("Running Smoke Test: Login");
+    }
+
+    @Test(groups = {"regression"})
+    public void testProfileUpdate() {
+        System.out.println("Running Regression Test: Profile Update");
+    }
+
+    @Test(groups = {"smoke", "regression"})
+    public void testDashboard() {
+        System.out.println("Running Smoke and Regression Test: Dashboard");
+    }
+
+    @Test
+    public void testNoGroup() {
+        System.out.println("Running Test with No Group");
+    }
+}
+
+
+Inteng.xml file this 
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="GroupSuite">
+    <test name="SmokeTests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="GroupExample"/>
+        </classes>
+    </test>
+</suite>
+
+17. How to Run Test Cases in Parallel in TestNG?
+=> Parallel execution in TestNG allows you to run multiple test methods, 
+classes, or test suites at the same time,
+ using multiple threads. This helps to reduce test execution time.
+ 
+ Ways to Run Tests in Parallel:
+ Tests (defined in testng.xml)
+ Classes
+ Methods
+ Instances
+ 
+ Example:-
+ package tests;
+
+import org.testng.annotations.Test;
+
+public class ParallelExample {
+
+    @Test
+    public void test1() {
+        System.out.println("Test 1 - Thread ID: " + Thread.currentThread().getId());
+    }
+
+    @Test
+    public void test2() {
+        System.out.println("Test 2 - Thread ID: " + Thread.currentThread().getId());
+    }
+
+    @Test
+    public void test3() {
+        System.out.println("Test 3 - Thread ID: " + Thread.currentThread().getId());
+    }
+}
+
+
+  In testNG xml
+  <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelMethodSuite" parallel="methods" thread-count="3">
+    <test name="ParallelTest">
+        <classes>
+            <class name="tests.ParallelExample"/>
+        </classes>
+    </test>
+</suite>
+
+18. How to exclude a particular test in TestNG?
+=> Excluding a specific test method (function) in a class is referred to as "excluding" in TestNG.
+This is commonly used when you want to skip certain tests from execution temporarily.
+
+Example:-
+import org.testng.annotations.Test;
+
+public class SampleTest {
+
+    @Test
+    public void test1() {
+        System.out.println("Running test1");
+    }
+
+    @Test
+    public void test2() {
+        System.out.println("Running test2");
+    }
+
+    @Test
+    public void test3() {
+        System.out.println("Running test3");
+    }
+}
+
+TestNg.xml
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+    <test name="MyTest">
+        <classes>
+            <class name="SampleTest">
+                <methods>
+                    <exclude name="test2" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+19. How to ignore a particular test in TestNG?
+=> It works similarly to excluding a test, but there's no need to modify the testng.xml file.
+ You can simply use the enabled = false attribute in the @Test annotation to ignore a test method.
+ 
+Eample:-
+import org.testng.annotations.Test;
+
+public class SampleTest {
+
+    @Test
+    public void test1() {
+        System.out.println("Running test1");
+    }
+
+    @Test(enabled = false)
+    public void test2() {
+        System.out.println("This test is excluded and won't run");
+    }
+
+    @Test
+    public void test3() {
+        System.out.println("Running test3");
+    }
+}
+
+20. How to exclude a group in TestNG?
+=> In TestNG, you can assign test methods to groups and then exclude specific groups 
+using the testng.xml file. This is useful when you want to skip running certain categories
+of tests like regression, smoke, etc., without modifying the code.
+
+Example:-
+import org.testng.annotations.Test;
+
+public class GroupTest {
+
+    @Test(groups = "smoke")
+    public void test1() {
+        System.out.println("Running test1 - smoke group");
+    }
+
+    @Test(groups = "regression")
+    public void test2() {
+        System.out.println("Running test2 - regression group");
+    }
+
+    @Test
+    public void test3() {
+        System.out.println("Running test3 - no group");
+    }
+}
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MySuite">
+    <test name="ExcludeGroupTest">
+        <groups>
+            <run>
+                <exclude name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="GroupTest"/>
+        </classes>
+    </test>
+</suite>
+
+21.What is dependsOnMethods in TestNG?
+=> The dependsOnMethods attribute in TestNG is used when you want a test method to run only after one or more other 
+methods have successfully executed. If the dependent method fails or is skipped, 
+the current test will also be skipped.
+
+Example:-
+import org.testng.annotations.Test;
+
+public class DependencyTest {
+
+    @Test
+    public void login() {
+        System.out.println("Login successful");
+    }
+
+    @Test(dependsOnMethods = "login")
+    public void accessDashboard() {
+        System.out.println("Accessing dashboard after login");
+    }
+
+    @Test(dependsOnMethods = {"login", "accessDashboard"})
+    public void logout() {
+        System.out.println("Logout successful");
+    }
+}
+
+Explanation:
+
+1. accessDashboard() will only run if login() passes.
+2. logout() will run only if both login() and accessDashboard() pass.
+3. If login() fails, both accessDashboard() and logout() will be skipped.
+
+
+22. What is dependsOnGroups in TestNG?
+=> The dependsOnGroups attribute is used to make a test method or group dependent on the
+ execution of an entire group of tests. This is useful when you want to ensure all tests 
+ in a group (e.g., "smoke") run before a specific test.
+ 
+ Example:-
+ import org.testng.annotations.Test;
+
+public class GroupDependencyTest {
+
+    @Test(groups = "smoke")
+    public void test1() {
+        System.out.println("Smoke test1 passed");
+    }
+
+    @Test(groups = "smoke")
+    public void test2() {
+        System.out.println("Smoke test2 passed");
+    }
+
+    @Test(dependsOnGroups = "smoke")
+    public void finalTest() {
+        System.out.println("Running final test after all smoke tests");
+    }
+}
+
+Explanation:
+
+1. finalTest() will only execute after all methods in the smoke group (test1() and test2()) have successfully completed.
+2. If any test in the smoke group fails, finalTest() will be skipped.
+
+23. What is the TestNG HTML report and where is it stored?
+=> TestNG automatically generates an HTML report after test execution, which shows the test results (Passed, Failed, Skipped).
+This report is stored in the test-output folder, which is created in the project's root directory.
+
+a. Main file to view: test-output/index.html
+b. You can open it in a browser to view detailed results.
+
+Example:- 
+file:///C:/Users/Manoj/eclipse-workspace/SeleniumInterview/test-output/index.html
+file:///C:/Users/Manoj/eclipse-workspace/SeleniumInterview/test-output/emailable-report.html
+
+
+24. What are the two different ways to generate and customize the report in TestNG?
+=> There are two common ways to generate and customize reports in TestNG:
+
+Using IReporter interface
+a. This allows you to create custom reports by implementing the IReporter interface.
+b. You can generate your own HTML or other format reports based on test results.
+
+Using ITestListener interface
+a. This allows you to listen to test events (like onTestSuccess, onTestFailure, etc.).
+b. You can use this to log results, take screenshots, and enhance reporting during runtime.
+
+25. What is the use of @Listeners annotation in TestNG?
+=> These listeners allow you to perform actions during the test execution, like:
+
+a. Logging test results
+b. Taking screenshots on failure
+c. Generating custom reports
+d. Sending notifications
+
+26. How to write a regular expression in TestNG XML to run only @Test methods that contain the word "smoke"?
+=> 
+Example:-
+package com.example.tests;
+
+import org.testng.annotations.Test;
+
+public class MyTestClass {
+
+    @Test
+    public void testSmokeLogin() {
+        System.out.println("Running testSmokeLogin");
+    }
+
+    @Test
+    public void validateSmokeScenario() {
+        System.out.println("Running validateSmokeScenario");
+    }
+
+    @Test
+    public void testLogin() {
+        System.out.println("Running testLogin");
+    }
+}
+
+TestNg Xml file:-
+
+<suite name="MySuite">
+    <test name="SmokeTests">
+        <classes>
+            <class name="com.example.tests.MyTestClass">
+                <methods>
+                    <include name=".*smoke.*" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+27. What are the time units we can specify in TestNG test suites and test cases?
+=> In TestNG, you can specify time-related parameters (like timeouts, durations, etc.)
+using milliseconds as the time unit.
+
+
+

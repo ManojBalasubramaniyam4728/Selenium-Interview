@@ -1,0 +1,35 @@
+1. What are locators in Selenium?
+Follow-up: Why are locators important in test automation?
+=> Loctors nothing but element that present in web page. why it is need because sepecific web action on elemnet is posiable by loactor action only.
+
+2. What are the different types of locators available in Selenium?
+=> Answer: ID, Name, ClassName, TagName, LinkText, PartialLinkText, XPath, CSS Selector.
+
+3. Which locator is the fastest and why?
+=>Answer: By.id is generally the fastest because ID is unique and directly maps to a DOM element.
+
+4. How do you locate an element by ID and Name in Java?
+=>driver.findElement(By.id("username"));
+=>driver.findElement(By.name("password"));
+
+
+5. What is the difference between By.linkText() and By.partialLinkText()?
+
+6. When should you use By.className() vs By.cssSelector()?
+
+7. How do you locate an element using XPath in Java?
+
+8. Explain absolute vs relative XPath with examples.
+
+9. What are the advantages of using CSS selectors over XPath?
+
+10. Give an example of using starts-with() in XPath
+
+11. How do you handle dynamic elements in Selenium using locators?
+=>contains() or starts-with: Use contains(@attribute, 'partial_value') when a part of the attribute value remains constant.
+
+12. Write a locator for an input element with multiple classes using CSS Selector.
+
+13. How do you locate the nth element in XPath?
+
+14. How do you find all elements of a particular tag and iterate over them?

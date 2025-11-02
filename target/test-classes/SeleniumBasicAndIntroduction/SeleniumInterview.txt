@@ -1,0 +1,32 @@
+1. What is selenium?
+=> Selenium is an open-source tool for automating web browser interactions.
+* Selenium was created in 2004 octomber 28 at ThoughtWorks.
+* Created by Jason Huggins.
+
+2. What are the Selenium compontes?
+=>  Selenium IDE, Selenium Web Driver, Selenium Grid, Selenium RC(out  date)
+
+3. what is selenium Web Driver?
+=> Selenium WebDriver is an open-source tool for automating web browser interactions.
+
+4. Advantage and Disadvantage of selenium webdriver?
+=> Advantage:-
+   * Open-Source and Free
+   * Multi-Language Support
+   * Cross-Browser Compatibility
+   * Integration Capabilities
+   
+   Dis-Advantage:-
+   * Web-Based Applications Only
+   * Requires Programming Knowledge
+   * Image Testing Limitations:
+   
+5. Selenium architecture 3?
+=> 	1. Selenium Client library: Selenium provides support to multiple libraries such as Ruby, Python, Java, etc as language bindings
+	2. JSON wire protocol over HTTP: JSON is an acronym for JavaScript Object Notation. It is an open standard that provides a transport mechanism for transferring data between client and server on the web.
+	3. Browser Drivers: Selenium browser drivers are native to each browser, interacting with the browser by establishing a secure connection. Selenium supports different browser drivers such as ChromeDriver, GeckoDriver, Microsoft Edge WebDriver, SafariDriver, and InternetExplorerDriver.
+	4. Browsers: Selenium provides support for multiple browsers like Chrome, Firefox, Safari, Internet Explorer etc.
+
+6.  Selenium architecture 4?
+=>  The architecture of Selenium 4 is similar to Selenium 3, however it uses W3C protocol instead of JSON wire protocol for communication between Client Libraries and Browser Drivers.
+

@@ -1,0 +1,11 @@
+1. What is synchronization in Selenium? Why is it needed?
+=> Synchronization in Selenium refers to the process of coordinating the execution speed of Selenium WebDriver scripts.
+use :- to escape from StaleElementReferenceException, ElementClickInterceptedException, ElementNotVisibleException, NoSuchElementException
+
+2. What are the different types of waits in Selenium WebDriver?
+
+Answer: Implicit Wait, Explicit Wait, Fluent Wait (a type of explicit wait)
+
+3. What is the difference between Implicit and Explicit Waits?
+=> Implicit:- is setted globally
+   Explicity:- is for specifly waiting for periculear elements	
