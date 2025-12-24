@@ -1,0 +1,13 @@
+# Valid properties for Grasshopper PDF plugin
+passColor: 05a167
+failColor: ff4444
+skipColor: ffaa00
+displayFeature: true
+displayScenario: true
+displayDetailed: true
+displayAttached: true
+
+# Dashboard config (optional)
+dashboardConfig:
+  title: "Test Summary"      # ✅ This title works here
+  dataBackgroundColor: 4F0CC8

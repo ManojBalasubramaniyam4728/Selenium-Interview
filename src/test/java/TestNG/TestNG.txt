@@ -543,5 +543,66 @@ TestNg Xml file:-
 => In TestNG, you can specify time-related parameters (like timeouts, durations, etc.)
 using milliseconds as the time unit.
 
+28. List out various ways in which TestNG can be invoked?
+=> 1. Using Eclipes IDE
+2. Using Maven tool(by passing testng.xml file in surefire plug-in in pom.xml)
+3. Using Command line
+4. Using Intellij IDE
 
+29. How to run TestNG using command line?
+=> Go to file directory in cmd and give following command 
+ 1. mvn clean
+ 2. mvn compile
+ 3. mvn Test
+ 
+ 30. What is the use of @Test(invocationCount=x)?
+ => This invocationCount attribute tell how many times TestNG should run a test method
+ 
+ Example:-
+ 
+package TestNG;
+
+import org.testng.annotations.Test;
+
+public class InvocationCount {
+	
+	@Test(invocationCount = 10)
+	  public void testcase() {
+        System.out.println("Running 10 times");
+    }
+	
+	@Test
+	  public void testcase1() {
+        System.out.println("Running one time");
+    }
+
+}
+ 
+In this Example testcase() method will run 10 times.
+
+31. What is the use of @Test(threadpoolSize=x)?
+=> The ThreadpoolSize attribute tell to form a thread pool to run the test method through multiple threads.
+Note:- This attribute is ignored if invocationCount is not specified
+
+Example:-
+
+package TestNG;
+
+import org.testng.annotations.Test;
+
+public class ThreadPoolSize {
+	
+	@Test(threadPoolSize = 10, invocationCount = 10)
+	  public void testcase() {
+      System.out.println("Running 10 times in 10 diffrent threads");
+  }
+	
+	@Test
+	  public void testcase1() {
+      System.out.println("Running one time");
+  }
+
+}
+
+In this Example testcase() method will run 10 times in 10 diffrent threads.
 
