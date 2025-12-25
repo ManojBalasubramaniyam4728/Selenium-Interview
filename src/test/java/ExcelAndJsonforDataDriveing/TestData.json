@@ -1,0 +1,16 @@
+{
+  "loginData": [
+    {
+	  "TestData_ID": "1",
+	  "username"   : "manoj",
+	  "password"   : "Pass123",
+	  "expected"   : "Success"
+	},
+    {
+	  "TestData_ID": "2",
+	  "username"   : "manoj",
+	  "password"   : "wrong",
+	  "expected"   : "Fail"
+   }
+  ]
+}

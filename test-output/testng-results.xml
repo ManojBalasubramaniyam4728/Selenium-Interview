@@ -1,57 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-03T09:20:57 IST" name="Default suite" finished-at="2025-12-03T09:20:57 IST" duration-ms="228">
+  <suite started-at="2025-12-25T16:37:10 IST" name="Default suite" finished-at="2025-12-25T16:37:10 IST" duration-ms="55">
     <groups>
     </groups>
-    <test started-at="2025-12-03T09:20:57 IST" name="Default test" finished-at="2025-12-03T09:20:57 IST" duration-ms="228">
-      <class name="TestNG.ThreadPoolSize">
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="32" status="PASS">
+    <test started-at="2025-12-25T16:37:10 IST" name="Default test" finished-at="2025-12-25T16:37:10 IST" duration-ms="55">
+      <class name="ExcelAndJsonforDataDriveing.GetDataFromProperty">
+        <test-method signature="getData()[pri:0, instance:ExcelAndJsonforDataDriveing.GetDataFromProperty@52f27fbd]" started-at="2025-12-25T16:37:10 IST" name="getData" finished-at="2025-12-25T16:37:10 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="34" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="43" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="34" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="33" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="39" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="34" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="32" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="33" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase" finished-at="2025-12-03T09:20:57 IST" duration-ms="32" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase -->
-        <test-method signature="testcase1()[pri:0, instance:TestNG.ThreadPoolSize@3add81c4]" started-at="2025-12-03T09:20:57 IST" name="testcase1" finished-at="2025-12-03T09:20:57 IST" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testcase1 -->
-      </class> <!-- TestNG.ThreadPoolSize -->
+        </test-method> <!-- getData -->
+      </class> <!-- ExcelAndJsonforDataDriveing.GetDataFromProperty -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

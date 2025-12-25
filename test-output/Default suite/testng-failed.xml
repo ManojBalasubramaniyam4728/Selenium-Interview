@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestNG.DependencyTest">
+      <class name="ExcelAndJsonforDataDriveing.GetDataFromJson">
         <methods>
-          <include name="accessDashboard"/>
-          <include name="login"/>
-          <include name="logout"/>
+          <include name="getDataFromJson"/>
         </methods>
-      </class> <!-- TestNG.DependencyTest -->
+      </class> <!-- ExcelAndJsonforDataDriveing.GetDataFromJson -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

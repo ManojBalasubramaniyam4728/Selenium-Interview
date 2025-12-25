@@ -21,8 +21,8 @@ public class DataProvider {
 	
 	@org.testng.annotations.DataProvider(name="excelData")
 	public Object[][]  getDteFromExcel() throws IOException {
-		
-		FileInputStream fis=new FileInputStream("C:/Users/Manoj/OneDrive/Test/TestData.xlsx");
+		String filePath = System.getProperty("user.dir")+ "/src/test/java/ExcelAndJsonforDataDriveing/TestData.xlsx";
+		FileInputStream fis=new FileInputStream(filePath);
 		Workbook workbook=new XSSFWorkbook(fis);
 		Sheet sheet=workbook.getSheet("Sheet1");
 		int rowCount= sheet.getPhysicalNumberOfRows();

@@ -1,0 +1,107 @@
+1. What is Page Object Model?
+
+=> It is design pattern 
+
+=> Each and evry page in the application, we need to create a seperate java class file in the project framework.
+
+=> Web Ui elements on a page, will be created as objects in the corresponding Java class file. 
+
+2. POM vs Page Factory?
+=>
+| POM                              | Page Factory                     |
+| -------------------------------- | -------------------------------- |
+| Design pattern                   | Implementation of POM            |
+| Manual WebElement initialization | Lazy initialization with @FindBy |
+| driver.findElement()             | PageFactory.initElements()       |
+| More control                     | Less boilerplate code            |
+
+3. How do you implement POM?
+=> 
+public class LoginPage {
+    WebDriver driver;
+    
+    @FindBy(id = "username")
+    WebElement usernameField;
+    
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+    
+    public void login(String user, String pass) {
+        usernameField.sendKeys(user);
+        // password logic...
+    }
+}
+
+4. What is @FindBy annotation?
+=> Used in Page Factory for lazy initialization of WebElements.
+Example:-
+@FindBy(id = "username")        // By ID
+@FindBy(xpath = "//input")      // By XPath  
+@FindBy(css = ".class")         // By CSS
+@FindBy(name = "name")          // By Name
+
+5. How to handle dynamic elements in POM?
+=> 1.Use relative locators
+2. Pass parameters to locators
+3. Use Page Factory with dynamic XPath/CSS
+4. Custom methods with parameters
+Example:-
+public WebElement getProductByName(String productName) {
+    return driver.findElement(By.xpath("//div[text()='" + productName + "']"));
+}
+
+6. What is PageFactory.initElements()?
+=> Initializes all WebElements marked with @FindBy in a page class using lazy initialization
+
+7. How do Page Objects interact with Test Classes?
+=> @Test
+public void testLogin() {
+    LoginPage loginPage = new LoginPage(driver);
+    loginPage.login("user", "pass");
+    HomePage homePage = loginPage.clickLogin(); // Returns next page
+}
+
+
+8. What are Page Chains?
+=> Methods in page classes return the next page object.
+
+Example:-
+public HomePage clickLogin() {
+    loginButton.click();
+    return new HomePage(driver);
+}
+
+
+9. What is difference b/w @FindBy, @FindAll, @FindBys
+=>
+i> @FindBy:-  Used to find one element (or list) with one locator.
+
+Example:- 
+@FindBy(id = "username")
+private WebElement usernameInput;
+
+@FindBy(css = ".product-item")
+private List<WebElement> productItems;
+
+ii> @FindBys:- Used when an element must satisfy all locators (chained). Think: AND.
+
+Example:-
+@FindBys({
+    @FindBy(className = "form-control"),
+    @FindBy(name = "username")
+})
+private WebElement usernameInput;
+
+iii> @FindAll:- Used when an element can match any one of multiple locators. Think: OR.
+
+Example:-
+@FindAll({
+    @FindBy(id = "username"),
+    @FindBy(name = "user_name"),
+    @FindBy(xpath = "//input[@placeholder='Enter your username']")
+})
+private WebElement usernameInput;
+
+
