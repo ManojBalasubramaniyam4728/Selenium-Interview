@@ -30,3 +30,32 @@
 6.  Selenium architecture 4?
 =>  The architecture of Selenium 4 is similar to Selenium 3, however it uses W3C protocol instead of JSON wire protocol for communication between Client Libraries and Browser Drivers.
 
+7. Web driver architecture?
+
+=>                       Search contect
+                               |
+                               | extends
+                               |
+           ----------------------------------------------
+           |                   |                        |
+  JavaScriptExecutor        WebDriver             TakeScreenshot      
+           |                   |                        |
+           ----------------------------------------------
+                               |
+                               | implements
+                               |
+                          RemoteWebDriver
+                               |
+                               | extends
+                               |
+             -------------------------------------------  
+             |                    |                    |
+             |  extends           |  extends           |extends
+             |                    |                    |
+         ChromiumDriver        FirefoxDriver       IEDriver    
+             |
+             | extends
+             |
+      ----------------- 
+      |               |
+  chrome Driver     Edge Driver                

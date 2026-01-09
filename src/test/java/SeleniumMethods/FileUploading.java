@@ -42,6 +42,7 @@ public class FileUploading {
 		rb.keyRelease(KeyEvent.VK_ENTER);
 		
 		driver.close();
+		
 	}
 		
 }

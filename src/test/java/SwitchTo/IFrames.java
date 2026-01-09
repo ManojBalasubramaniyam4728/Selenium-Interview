@@ -35,6 +35,12 @@ public class IFrames {
 		// driver.switchTo().defaultContent();
 		
 		driver.close();
+		
+		/* The main diffrance of parentFrame() and defaultContent()
+		 * defaultContent(): Example default--> frame1, frame2, Frame3, if use this defaultContent() the now matter how ever you isde it come to firt level 
+		 * parentFrame(): Example default--> frame1, frame2, Frame3, if use this parentFrame() then it will go to frame3 not default one this is the diffrance.
+		 */
+		
 
 	}
 

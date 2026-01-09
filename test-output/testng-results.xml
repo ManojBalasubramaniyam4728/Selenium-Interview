@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-25T16:37:10 IST" name="Default suite" finished-at="2025-12-25T16:37:10 IST" duration-ms="55">
+  <suite started-at="2026-01-06T14:36:10 IST" name="Suite" finished-at="2026-01-06T14:36:10 IST" duration-ms="55">
     <groups>
     </groups>
-    <test started-at="2025-12-25T16:37:10 IST" name="Default test" finished-at="2025-12-25T16:37:10 IST" duration-ms="55">
-      <class name="ExcelAndJsonforDataDriveing.GetDataFromProperty">
-        <test-method signature="getData()[pri:0, instance:ExcelAndJsonforDataDriveing.GetDataFromProperty@52f27fbd]" started-at="2025-12-25T16:37:10 IST" name="getData" finished-at="2025-12-25T16:37:10 IST" duration-ms="11" status="PASS">
+    <test started-at="2026-01-06T14:36:10 IST" name="Test" finished-at="2026-01-06T14:36:10 IST" duration-ms="55">
+      <class name="TestNG.Parallel">
+        <test-method signature="test1()[pri:0, instance:TestNG.Parallel@52f27fbd]" started-at="2026-01-06T14:36:10 IST" name="test1" finished-at="2026-01-06T14:36:10 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getData -->
-      </class> <!-- ExcelAndJsonforDataDriveing.GetDataFromProperty -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- test1 -->
+        <test-method signature="test3()[pri:0, instance:TestNG.Parallel@52f27fbd]" started-at="2026-01-06T14:36:10 IST" name="test3" finished-at="2026-01-06T14:36:10 IST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method signature="test2()[pri:0, instance:TestNG.Parallel@52f27fbd]" started-at="2026-01-06T14:36:10 IST" name="test2" finished-at="2026-01-06T14:36:10 IST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+      </class> <!-- TestNG.Parallel -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
